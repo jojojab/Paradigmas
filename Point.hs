@@ -10,6 +10,6 @@ difP :: Point -> Point -> Float  -- distancia absoluta
 difP (Poi x1 y1) (Poi x2 y2) = sqrt (fromIntegral((x1 - x2) ^ 2 + (y1 - y2) ^ 2))
 
 
-punto1 = newP 1 1
-punto2 = newP 2 1
+punto1 = Poi 1 1
+punto2 = Poi 2 1
 difP1P2 = difP punto1 punto2
