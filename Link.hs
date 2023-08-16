@@ -16,11 +16,12 @@ delayL :: Link -> Float     -- la demora que sufre una conexion en este canal
 newL city1 city2 qual = Lin city1 city2 qual
 connectsL cityIn (Lin city1 city2 qual) | cityIn == city1 || cityIn == city2 = True
                                         | otherwise = False
-linksL city1 city2 (Lin city3 city4 qual) | (city1 == city3 && city2 == city4) || (city1 == city4 && city2 == city3) = True
+linksL city1 city2 (Lin city3 city4 qual) | city1 == city2 = error "Comparing same city"
+                                          | (city1 == city3 && city2 == city4) || (city1 == city4 && city2 == city3) = True
                                           | otherwise = False
 
-capacityL = undefined
-delayL = undefined
+capacityL (Lin city1 city2 qual)  = capacityQ qual
+delayL (Lin city1 city2 qual) = delayQ qual
 
 
 p1 = newP 1 1
@@ -38,3 +39,7 @@ connect2 = connectsL ciudad3 link1
 link2 = linksL ciudad1 ciudad2 link1
 link3 = linksL ciudad2 ciudad1 link1
 link4 = linksL ciudad3 ciudad2 link1
+link5 = linksL ciudad2 ciudad2 link1
+
+cap1 = capacityL link1
+del1 = delayL link1
