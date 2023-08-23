@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
+{-# HLINT ignore "Redundant if" #-}
 module Region ( Region, newR, foundR, linkR, tunelR, connectedR, linkedR, delayR, availableCapacityForR)
    where
 
@@ -17,20 +19,20 @@ foundR (Reg citys links tunels) newCity = Reg (citys ++ [newCity]) links tunels
 
 cityInRegion :: City -> Region -> Bool
 cityInRegion city (Reg [] _ _) = False
-cityInRegion city (Reg (citys : cityvs) a b) = if city == citys then True
-                                                else cityInRegion city (Reg (cityvs) a b)
+cityInRegion city (Reg (citys : cityvs) a b) = (city == citys) || cityInRegion city (Reg cityvs a b)
 
 linkR :: Region -> City -> City -> Quality -> Region -- enlaza dos ciudades de la región con un enlace de la calidad indicada
-linkR (Reg citys links tunels) city1 city2 qua 
+linkR (Reg citys links tunels) city1 city2 qua
    | city1 == city2 = error "Same city"
    | length citys <= 1 = error "Insufficient amount of citys in region for a link"
    | not (cityInRegion city1 (Reg citys links tunels)) || not (cityInRegion city2 (Reg citys links tunels)) = error "At least one city not in region"
    | otherwise = Reg citys (links ++ [newL city1 city2 qua]) tunels --Enlce de las ciudades 
 
-                                    
+
 
 tunelR :: Region -> [ City ] -> Region -- genera una comunicación entre dos ciudades distintas de la región
-tunelR = undefined
+tunelR (Reg citys links tunels) [city] | not (cityInRegion city (Reg citys links tunels)) = error "City not in region"
+                                       | otherwise = Reg citys links tunels -- not good check.
 
 connectedR :: Region -> City -> City -> Bool -- indica si estas dos ciudades estan conectadas por un tunel
 connectedR = undefined
@@ -64,5 +66,10 @@ cityToConnections (x:y:ys) = (x,y) : cityToConnections (y:ys)
 linkExists :: [(City, City)] -> [Link] -> Bool
 linkExists [] _ = False
 linkExists _ [] = False
-linkExists ((city1, city2):cityvs) (links:linkvs) = if connectsL city1 links && connectsL city2 links then True  && linkExists cityvs [links]
-                                           else linkExists cityvs linkvs
+linkExists ((city1, city2):cityvs) (links:linkvs) = if linksL city1 city2 links then True else linkExists cityvs linkvs
+
+
+linksTrue = [newL c1 c2 qua1, newL c2 c3 qua1, newL c3 c1 qua1]
+linksFalse = [newL c1 c2 qua1, newL c2 c3 qua1, newL c4 c1 qua1]
+linE1 = linkExists (cityToConnections [c1,c2,c3]) linksTrue
+linE2 = linkExists (cityToConnections [c1,c2,c3]) linksFalse
