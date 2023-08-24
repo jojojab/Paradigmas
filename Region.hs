@@ -38,10 +38,18 @@ linkIn (c1,c2) links = foldr (\each fold -> if linksL c1 c2 each then True else 
 
 isAll target = foldr (\each -> (&&) $ target == each) True
 
+linkForTunel :: [City] -> [Link] -> [Link]
+linkForTunel [] _ = []
+linkForTunel [x] _ = []
+linkForTunel (x:y:ys) links = (linkIn2 (x,y) links) : linkForTunel (y:ys) links
+
+linkIn2 :: (City,City) -> [Link] -> Link
+linkIn2 (c1,c2) links = foldr (\each fold -> if linksL c1 c2 each then each else fold) l1 links
+
 tunelR :: Region -> [ City ] -> Region -- genera una comunicación entre dos ciudades distintas de la región
 tunelR (Reg citys links tunels) ciudades | length ciudades <= 1 = error "Insufficient amount of citys in region for a tunel"
                                          | not (isAll True (cityToConnections ciudades links)) = error "Not all cities are connected"
-                                         | otherwise = Reg citys links (tunels ++ [newT [newL c1 c2 qua1, newL c2 c3 qua1]])
+                                         | otherwise = Reg citys links (tunels ++ [newT (linkForTunel citys links)])
 
 connectedR :: Region -> City -> City -> Bool -- indica si estas dos ciudades estan conectadas por un tunel
 connectedR = undefined
@@ -69,7 +77,7 @@ l3 = newL c3 c4 qua1
 
 qua1 = newQ "naaa" 10 10
 
-region1 = Reg [c1,c2,c3] [l1, l2, l3] []
+region1 = Reg [c1,c2,c3,c4] [l1, l2, l3] []
 region2 = Reg [c1, c4] [] []
 region3 = Reg [c2, c3] [] []
 
@@ -90,3 +98,8 @@ linkeado = [newL c1 c3 qua1, newL c3 c5 qua1, newL c2 c3 qua1]
 linE5 = cityToConnections [c1, c2, c3, c4, c5, c6] linkeado -- [False, True, False, False, False, False]
 linkeado2 = [newL c1 c2 qua1, newL c3 c4 qua1, newL c5 c6 qua1]
 linE6 = cityToConnections [c1, c2, c3, c4, c5, c6] linkeado2 -- [True, False, True, False, True]
+
+tunr1 = tunelR region1 [c1,c2,c3]
+tunr2 = tunelR region1 [c1]
+tunr3 = tunelR region1 []
+tunr4 = tunelR region3 [c1,c2,c3]
