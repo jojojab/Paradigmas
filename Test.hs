@@ -24,8 +24,46 @@ result x | x > 5 = 4
          | otherwise = error "hey"
 
 -- ahora pueden evaluar
-t = [ testF (result 0 ),
-      testF (result 6 ) ]
+t = [ difP1P2 == sqrt(18),
+      difP1P3 == sqrt(162), 
+      difP2P3 == sqrt(72),
+      nameC1 == "BsAs",
+      nameC2 == "Tokyo",
+      nameC3 == "New York",
+      disC1C2 == sqrt(18),
+      disC1C3 == sqrt(162),
+      disC2C3 == sqrt(72),
+      capq1 == 10,
+      capq2 == 20,
+      capq3 == 30,
+      delq1 == 3,
+      delq2 == 5,
+      delq3 == 10,
+      conC1L1 == True,
+      conC2L1 == True,
+      conC3L1 == False,
+      conC2L2 == True,
+      conC3L2 == True,
+      conC1L2 == False,
+      c1c2L1 == True,
+      c2c1L1 == True,
+      c3L1 == False,
+      capL1 == 10,
+      capL2 == 20,
+      capL3 == 30,
+      delL1 == sqrt(18) * 3,
+      delL2 == sqrt(72) * 5,
+      delL3 == sqrt(162) * 10,
+      conC1C3T1 == True,
+      conC3C1T1 == True,
+      conC2C3T2 == True,
+      conC1C3T2 == False,
+      usesL1T1 == True,
+      usesL2T2 == False,
+      usesL3T3 == True,
+      delT1 == delL1 + delL2,
+      delT2 == delL1 + delL3,
+      delT3 == delL3 + delL2 ]
 
 
 -- modulo Point
@@ -108,3 +146,16 @@ usesL3T3 = usesT l3 t3
 delT1 = delayT t1
 delT2 = delayT t2
 delT3 = delayT t3
+
+-- modulo Region
+
+reg1 = newR
+
+reg2 = foundR reg1 c1
+reg3 = foundR reg2 c2 
+reg4 = foundR reg3 c3
+
+linkR2C1C2 = linkR reg2 c1 c2 q1
+linkR3C2C3 = linkR reg3 c2 c3 q1
+linkR3C1C2 = linkR reg3 c1 c2 q2
+linkR4C3C1 = linkR reg4 c3 c1 q3
