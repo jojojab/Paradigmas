@@ -21,7 +21,7 @@ linksL city1 city2 (Lin city3 city4 qual) | city1 == city2 = error "Comparing sa
                                           | otherwise = False
 
 capacityL (Lin city1 city2 qual)  = capacityQ qual
-delayL (Lin city1 city2 qual) = delayQ qual
+delayL (Lin city1 city2 qual) = delayQ qual * (distanceC city1 city2)
 
 
 p1 = newP 1 1

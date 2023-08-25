@@ -70,14 +70,16 @@ c6 = newC "BsAs" (newP 6 6)
 l1 = newL c1 c2 qua1 
 l2 = newL c2 c3 qua1
 l3 = newL c3 c4 qua1
+l4 = newL c4 c5 qua1
 noLinkFound = newL (newC "noLinkFound" (newP 0 0)) (newC "noLinkFound" (newP 0 0)) (newQ "noLinkFound" 0 0)
 noTunFound = newT [noLinkFound]
 
 qua1 = newQ "naaa" 10 10
 
-region1 = Reg [c1,c2,c3,c4] [l1, l2, l3] []
+region1 = Reg [c1,c2,c3,c4] [l1, l2, l3] [tun1]
 region2 = Reg [c1, c4] [] []
 region3 = Reg [c2, c3] [] []
+region4 = Reg [c1,c2,c3,c4] [l1,l2,l3,l4] []
 
 
 
@@ -101,3 +103,10 @@ tunr1 = tunelR region1 [c1,c2,c3]
 tunr2 = tunelR region1 [c1]
 tunr3 = tunelR region1 []
 tunr4 = tunelR region3 [c1,c2,c3]
+tunr5 = tunelR region4 [c1,c2,c3,c4]
+
+con1 = connectedR region1 c1 c2
+con2 = connectedR region1 c1 c4
+con3 = connectedR region1 c1 c3
+
+tun1 = newT [l1, l2]

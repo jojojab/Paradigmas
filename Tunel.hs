@@ -31,7 +31,7 @@ lastCity :: City -> Tunel -> Bool
 lastCity city (Tun links) = connectsL city (last links) && not (connectsL city (head (init links)))
 
 
-usesT linkTarget (Tun links) = foldr (\each fold -> if each == linkTarget then True else False) False links
+usesT linkTarget (Tun links) = foldr (\each fold -> if each == linkTarget then True else fold) False links
 
 delayT (Tun links) = foldr (\each fold -> fold + delayL each) 0.0 links 
 
