@@ -13,18 +13,19 @@ newR :: Region
 newR = Reg [] [] []
 
 foundR :: Region -> City -> Region -- agrega una nueva ciudad a la región
-foundR (Reg cities links tunels) newCity = Reg (cities ++ [newCity]) links tunels
+foundR r1@(Reg cities links tunels) newCity | not (cityInRegion newCity r1) = Reg (cities ++ [newCity]) links tunels
+                                            | otherwise = error "City already in region" 
 
 cityInRegion :: City -> Region -> Bool
 cityInRegion city (Reg [] _ _) = False
 cityInRegion city (Reg (cities : cityvs) a b) = (city == cities) || cityInRegion city (Reg cityvs a b)
 
 linkR :: Region -> City -> City -> Quality -> Region -- enlaza dos ciudades de la región con un enlace de la calidad indicada
-linkR (Reg cities links tunels) city1 city2 qua
-   | city1 == city2 = error "Same city"
+linkR r1@(Reg cities links tunels) city1 city2 qua | city1 == city2 = error "Same city"
    | length cities <= 1 = error "Insufficient amount of cities in region for a link"
    | not (cityInRegion city1 (Reg cities links tunels)) || not (cityInRegion city2 (Reg cities links tunels)) = error "At least one city not in region"
-   | otherwise = Reg cities (links ++ [newL city1 city2 qua]) tunels --Enlce de las ciudades 
+   | linkedR r1 city1 city2 = error "Cities already linked"
+   | otherwise = Reg cities (links ++ [newL city1 city2 qua]) tunels 
 
 
 linkForTunel :: [City] -> [Link] -> [Link]
@@ -37,10 +38,19 @@ linkIn (c1,c2) links = foldr (\each fold -> if linksL c1 c2 each then each else 
 
 countA target = foldr (\each fold -> if target == each then fold + 1 else fold) 0
 
+cityToTuple :: [City] -> [(City,City)]
+cityToTuple [] = []
+cityToTuple [x] = []
+cityToTuple (x:y:ys) = (x,y) : cityToTuple (y:ys)
+
+countB target r1 = foldr (\each fold -> if (availableCapacityForR r1 (fst(each)) (snd(each))) <= 0 then fold + 1 else fold) 0 target
+
 tunelR :: Region -> [ City ] -> Region -- genera una comunicación entre dos ciudades distintas de la región
-tunelR (Reg cities links tunels) ciudades | length ciudades <= 1 = error "Insufficient amount of cities in region for a tunel"
-                                         | countA noLinkFound (linkForTunel cities links) /= 0 = error "Not all cities are connected"
-                                         | otherwise = Reg cities links (tunels ++ [newT (linkForTunel cities links)])
+tunelR r1@(Reg cities links tunels) ciudades | length cities <= 1 = error "Insufficient amount of cities in region for a tunel"
+                                          | length ciudades <= 1 = error "Insufficient amount of cities for a tunel"
+                                          | countA noLinkFound (linkForTunel ciudades links) /= 0 = error "Not all cities are connected"
+                                          | countB (cityToTuple ciudades) r1 /= 0 = error "Not enough capacity for tunel"
+                                          | otherwise = Reg cities links (tunels ++ [newT (linkForTunel ciudades links)])
 
 connectedR :: Region -> City -> City -> Bool -- indica si estas dos ciudades estan conectadas por un tunel
 connectedR (Reg cities links tunels) c1 c2 = foldr (\each fold -> if connectsT c1 c2 each then True else fold) False tunels
@@ -53,16 +63,14 @@ reqTunel (Reg cities links tunels) c1 c2 = foldr (\each fold -> if connectsT c1 
 
 delayR :: Region -> City -> City -> Float -- dadas dos ciudades conectadas, indica la demora
 delayR r1@(Reg cities links tunels) c1 c2 | connectedR r1 c1 c2 = delayT (reqTunel r1 c1 c2)
-                                       | otherwise = error "Cities not connected"
+                                          | otherwise = error "Cities not connected"
 
 countLinkuses :: [Tunel] -> Link -> Int
 countLinkuses tunels link = foldr (\each fold -> if usesT link each then fold + 1 else fold) 0 tunels
 
-
-
 availableCapacityForR :: Region -> City -> City -> Int -- indica la capacidad disponible entre dos ciudades
-availableCapacityForR r1@(Reg cities links tunels) c1 c2 = if linkedR r1 c1 c2 then (capacityL (linkIn (c1,c2) links)) - countLinkuses tunels (linkIn (c1,c2) links)
-                                                            else error "Cities not linked"
+availableCapacityForR r1@(Reg cities links tunels) c1 c2 | linkedR r1 c1 c2 = (capacityL (linkIn (c1,c2) links)) - countLinkuses tunels (linkIn (c1,c2) links)
+                                                         | otherwise = error "Cities not linked"
 
 
 c1 = newC "pepe" (newP 1 1)

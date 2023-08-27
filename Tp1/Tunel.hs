@@ -9,20 +9,7 @@ import Point
 data Tunel = Tun [Link] deriving (Eq, Show)
 
 newT :: [Link] -> Tunel
-connectsT :: City -> City -> Tunel -> Bool -- inidca si este tunel conceta estas dos ciudades distintas
-usesT :: Link -> Tunel -> Bool  -- indica si este tunel atraviesa ese link
-delayT :: Tunel -> Float -- la demora que sufre una conexion en este tunel
-
 newT links = Tun links
-
-connectsT city1 city2 tun | city1 == city2 = error "Same city"
-                          | firstCity city1 tun && lastCity city2 tun = True
-                          | firstCity city2 tun && lastCity city1 tun = True
-                          | otherwise = False
-
-
--- cityInTunel :: City -> City -> Tunel -> Bool
--- cityInTunel city1 city2 (Tun (tun : tunvs)) = connectsL city1 tun && connectsL city2 tun
 
 firstCity :: City -> Tunel -> Bool
 firstCity city (Tun links) = connectsL city (head links) && not (connectsL city (head (tail links)))
@@ -30,9 +17,16 @@ firstCity city (Tun links) = connectsL city (head links) && not (connectsL city 
 lastCity :: City -> Tunel -> Bool
 lastCity city (Tun links) = connectsL city (last links) && not (connectsL city (head (init links)))
 
+connectsT :: City -> City -> Tunel -> Bool -- inidca si este tunel conceta estas dos ciudades distintas
+connectsT city1 city2 tun | city1 == city2 = error "Same city"
+                          | firstCity city1 tun && lastCity city2 tun = True
+                          | firstCity city2 tun && lastCity city1 tun = True
+                          | otherwise = False
 
+usesT :: Link -> Tunel -> Bool  -- indica si este tunel atraviesa ese link
 usesT linkTarget (Tun links) = foldr (\each fold -> if each == linkTarget then True else fold) False links
 
+delayT :: Tunel -> Float -- la demora que sufre una conexion en este tunel
 delayT (Tun links) = foldr (\each fold -> fold + delayL each) 0.0 links 
 
 p1 = newP 1 1

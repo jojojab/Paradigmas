@@ -8,21 +8,22 @@ import Quality
 data Link = Lin City City Quality deriving (Eq, Show)
 
 newL :: City -> City -> Quality -> Link -- genera un link entre dos ciudades distintas
-connectsL :: City -> Link -> Bool   -- indica si esta ciudad es parte de este link
-linksL :: City -> City -> Link -> Bool -- indica si estas dos ciudades distintas estan conectadas mediante este link
-capacityL :: Link -> Int
-delayL :: Link -> Float     -- la demora que sufre una conexion en este canal
-
 newL city1 city2 qual = Lin city1 city2 qual
+
+connectsL :: City -> Link -> Bool   -- indica si esta ciudad es parte de este link
 connectsL cityIn (Lin city1 city2 qual) | cityIn == city1 || cityIn == city2 = True
                                         | otherwise = False
+
+linksL :: City -> City -> Link -> Bool -- indica si estas dos ciudades distintas estan conectadas mediante este link
 linksL city1 city2 (Lin city3 city4 qual) | city1 == city2 = error "Comparing same city"
                                           | (city1 == city3 && city2 == city4) || (city1 == city4 && city2 == city3) = True
                                           | otherwise = False
 
+capacityL :: Link -> Int
 capacityL (Lin city1 city2 qual)  = capacityQ qual
-delayL (Lin city1 city2 qual) = delayQ qual * (distanceC city1 city2)
 
+delayL :: Link -> Float     -- la demora que sufre una conexion en este canal
+delayL (Lin city1 city2 qual) = delayQ qual * (distanceC city1 city2)
 
 p1 = newP 1 1
 ciudad1 = newC "hola" p1
