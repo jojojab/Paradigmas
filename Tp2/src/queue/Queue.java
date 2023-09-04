@@ -1,30 +1,39 @@
 package queue;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
+
 public class Queue {
 
+	public List<Object> queue = new ArrayList<>();
   public boolean isEmpty() {
 		// TODO Auto-generated method stub
-		return true;
-	}
+      return queue.isEmpty();
+  }
 
 	public Queue add( Object  cargo ) {
 		// TODO Auto-generated method stub
+		queue.add( cargo );
 		return this;
 	}
 
 	public Object take() {
     // TODO Auto-generated method stub
+		if (!queue.isEmpty())
+			return queue.remove( 0 );
 		return null;
 	}
 
 	public Object head() {
 		// TODO Auto-generated method stub
-    return null;
+		if (!queue.isEmpty())
+	  		return queue.get( 0 );
+		return null;
 	}
 
 	public int size() {
 		// TODO Auto-generated method stub
-		return 0;
+		return queue.size();
 	}
-
 }
