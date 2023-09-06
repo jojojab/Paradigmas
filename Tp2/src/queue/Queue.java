@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class Queue {
+public class Queue extends AbstractQueue{
 
 	public List<Object> queue = new ArrayList<>();
   public boolean isEmpty() {
@@ -18,14 +18,14 @@ public class Queue {
 		return this;
 	}
 
-	public Object take() {
+	public Object take();
     // TODO Auto-generated method stub
-		if (!queue.isEmpty())
-			return queue.remove( 0 );
-		else {
-			throw new Error( "Queue is empty");
-		}
-	}
+	//	if (!queue.isEmpty())
+	//		return queue.remove( 0 );
+	//	else {
+	//		throw new Error( "Queue is empty");
+	//	}
+	//}
 
 	public Object head() {
 		// TODO Auto-generated method stub
