@@ -22,14 +22,18 @@ public class Queue {
     // TODO Auto-generated method stub
 		if (!queue.isEmpty())
 			return queue.remove( 0 );
-		return null;
+		else {
+			throw new Error( "Queue is empty");
+		}
 	}
 
 	public Object head() {
 		// TODO Auto-generated method stub
 		if (!queue.isEmpty())
 	  		return queue.get( 0 );
-		return null;
+		else {
+			throw new Error( "Queue is empty");
+		}
 	}
 
 	public int size() {
