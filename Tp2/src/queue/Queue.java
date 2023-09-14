@@ -2,12 +2,17 @@ package queue;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
 
-public class Queue extends AbstractQueue{
+public class Queue{
 
-	public List<Object> queue = new ArrayList<>();
-  public boolean isEmpty() {
+	private List<Object> queue = new ArrayList<>();
+	private Object temp;
+	public ArrayList<ConteinersQueue> states = new ArrayList<>();
+    {
+        states.add(new EmptyQ());
+    }
+
+    public boolean isEmpty() {
 		// TODO Auto-generated method stub
       return queue.isEmpty();
   }
@@ -15,25 +20,19 @@ public class Queue extends AbstractQueue{
 	public Queue add( Object  cargo ) {
 		// TODO Auto-generated method stub
 		queue.add( cargo );
+		states.add(new ElemInQ());
 		return this;
 	}
-
-	public Object take();
+	public Object take(){
     // TODO Auto-generated method stub
-	//	if (!queue.isEmpty())
-	//		return queue.remove( 0 );
-	//	else {
-	//		throw new Error( "Queue is empty");
-	//	}
-	//}
+		temp = states.get(states.size() - 1 ).take(queue);
+		states.remove(states.size() - 1);
+		return temp;
+	}
 
 	public Object head() {
 		// TODO Auto-generated method stub
-		if (!queue.isEmpty())
-	  		return queue.get( 0 );
-		else {
-			throw new Error( "Queue is empty");
-		}
+		return states.get(states.size()-1).head(queue);
 	}
 
 	public int size() {
