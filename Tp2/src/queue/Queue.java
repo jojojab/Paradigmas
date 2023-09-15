@@ -6,7 +6,6 @@ import java.util.List;
 public class Queue{
 
 	private List<Object> queue = new ArrayList<>();
-	private Object temp;
 	public ArrayList<ConteinersQueue> states = new ArrayList<>();
     {
         states.add(new EmptyQ());
@@ -25,7 +24,7 @@ public class Queue{
 	}
 	public Object take(){
     // TODO Auto-generated method stub
-		temp = states.get(states.size() - 1 ).take(queue);
+		Object temp = states.get(states.size() - 1 ).take(queue);
 		states.remove(states.size() - 1);
 		return temp;
 	}
