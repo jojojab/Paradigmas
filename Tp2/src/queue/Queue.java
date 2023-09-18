@@ -6,9 +6,9 @@ import java.util.List;
 public class Queue{
 
 	private List<Object> queue = new ArrayList<>();
-	public ArrayList<ConteinersQueue> states = new ArrayList<>();
+	public ArrayList<StatesQueue> states = new ArrayList<>();
     {
-        states.add(new EmptyQ());
+        states.add(new EmptyQueue());
     }
 
     public boolean isEmpty() {
@@ -19,7 +19,7 @@ public class Queue{
 	public Queue add( Object  cargo ) {
 		// TODO Auto-generated method stub
 		queue.add( cargo );
-		states.add(new ElemInQ());
+		states.add(new ElementInQueue());
 		return this;
 	}
 	public Object take(){

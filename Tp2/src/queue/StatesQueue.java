@@ -2,7 +2,7 @@ package queue;
 
 import java.util.List;
 
-public abstract class ConteinersQueue {
+public abstract class StatesQueue {
 
     public abstract Object take(List<Object> queue);
 
