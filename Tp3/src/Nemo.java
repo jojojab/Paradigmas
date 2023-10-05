@@ -1,18 +1,23 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static java.lang.Math.abs;
+
 public class Nemo {
 
-    private Integer positionX = 0;
-    private Integer positionY = 0;
-    private Integer positionZ = 0;
+    private List<Integer> position = new ArrayList<>();
+    {
+        position = Arrays.asList(0,0);
+    }
+    private Integer altitude = 0;
     private Integer direction = 0;
-    public Nemo ( Integer positionX, Integer positionY, Integer positionZ, Integer direction  ) {
-        this.positionX = positionX;
-        this.positionY = positionY;
-        this.positionZ = positionZ;
-        this.direction = direction;
+    public Nemo ( ) {
     }
 
-    public Integer positionX() { return positionX; }
-    public Integer positionY() { return positionY; }
-    public Integer positionZ() { return positionZ; }
+    public List<Integer> position() { return position; }
+    public Integer posX() { return position.get(0); }
+    public Integer posY() { return position.get(1); }
+    public Integer altitude() { return altitude; }
     public Integer direction() { return direction; }
 }
