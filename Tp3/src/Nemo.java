@@ -12,14 +12,17 @@ public class Nemo {
     }
     private Integer altitude = 0;
     private Integer direction = 0;
-    public Nemo ( ) {
-    }
+    private String statusBrownie = "Brownie not released";
+
+//    public Nemo ( ) {
+//    }
 
     public List<Integer> position() { return position; }
     public Integer posX() { return position.get(0); }
     public Integer posY() { return position.get(1); }
     public Integer altitude() { return altitude; }
     public Integer direction() { return direction; }
+    public String statusBrownie() { return statusBrownie; }
 
     public void move(String moves ) {
         for (String move : moves.split("")) {
@@ -54,11 +57,15 @@ public class Nemo {
                     }
                     break;
                 case "m":
-                    liberar();
+                    statusBrownie = releaseBrownie();
                     break;
             }
         }
     }
-    public void liberar(){
+    public String releaseBrownie(){
+        if (altitude == 0 || altitude == 1) {
+            return "Incredible Chocolate Brownie Moment has been released unharmed";
+        }
+        throw new RuntimeException("Nemo is not on the surface");
     }
 }
