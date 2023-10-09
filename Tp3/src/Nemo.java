@@ -8,9 +8,8 @@ public class Nemo {
 
     private List<Integer> position = new ArrayList<>();
     {
-        position = Arrays.asList(0,0);
+        position = Arrays.asList(0,0,0);
     }
-    private Integer altitude = 0;
     private Integer direction = 0;
     private String statusBrownie = "Brownie not released";
 
@@ -20,7 +19,7 @@ public class Nemo {
     public List<Integer> position() { return position; }
     public Integer posX() { return position.get(0); }
     public Integer posY() { return position.get(1); }
-    public Integer altitude() { return altitude; }
+    public Integer altitude() { return position.get(2); }
     public Integer direction() { return direction; }
     public String statusBrownie() { return statusBrownie; }
 
@@ -28,11 +27,11 @@ public class Nemo {
         for (String move : moves.split("")) {
             switch (move) {
                 case "d":
-                    altitude--;
+                    position = Arrays.asList(posX(), posY(), altitude() - 1);
                     break;
                 case "u":
-                    if (altitude < 0) {
-                        altitude++;
+                    if (altitude() < 0) {
+                        position = Arrays.asList(posX(), posY(), altitude() + 1);
                     }
                     break;
                 case "l":
@@ -47,13 +46,13 @@ public class Nemo {
                     break;
                 case "f":
                     if (direction == 0) {
-                        position = Arrays.asList(posX() + 1, posY());
+                        position = Arrays.asList(posX() + 1, posY(), altitude());
                     } else if (direction == 90) {
-                        position = Arrays.asList(posX(), posY() + 1);
+                        position = Arrays.asList(posX(), posY() + 1, altitude());
                     } else if (direction == 180) {
-                        position = Arrays.asList(posX() - 1, posY());
+                        position = Arrays.asList(posX() - 1, posY(), altitude());
                     } else if (direction == 270) {
-                        position = Arrays.asList(posX(), posY() - 1);
+                        position = Arrays.asList(posX(), posY() - 1, altitude());
                     }
                     break;
                 case "m":
@@ -63,9 +62,9 @@ public class Nemo {
         }
     }
     public String releaseBrownie(){
-        if (altitude == 0 || altitude == 1) {
+        if (altitude() >= -1) {
             return "Incredible Chocolate Brownie Moment has been released unharmed";
         }
-        throw new RuntimeException("Nemo is not on the surface");
+        throw new RuntimeException("Nemo has been destroyed, Reason: trying to release brownie below the first level");
     }
 }
