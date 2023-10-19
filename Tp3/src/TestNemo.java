@@ -18,7 +18,7 @@ public class TestNemo {
 
     @Test
     public void initialDirectionNemo() {
-        assertEquals( initialDirection() , new Nemo().direction());
+        assertEquals( east() , new Nemo().direction());
     }
 
     @Test
@@ -29,7 +29,7 @@ public class TestNemo {
         Nemo nemo = new Nemo();
         nemo.move("");
         assertEquals( initialPosition() , nemo.position());
-        assertEquals( initialDirection() , nemo.direction());
+        assertEquals( east() , nemo.direction());
         assertEquals(brownieNotReleased(), nemo.statusBrownie());
     }
 
@@ -38,7 +38,7 @@ public class TestNemo {
         Nemo nemo = new Nemo();
         nemo.move("f");
         assertEquals( Arrays.asList(1,0,0) , nemo.position());
-        assertEquals( initialDirection() , nemo.direction());
+        assertEquals( east() , nemo.direction());
         assertEquals(brownieNotReleased(), nemo.statusBrownie());
     }
 
@@ -47,7 +47,7 @@ public class TestNemo {
         Nemo nemo = new Nemo();
         nemo.move("r");
         assertEquals( initialPosition() , nemo.position());
-        assertEquals( oneTurnRight() , nemo.direction());
+        assertEquals( south() , nemo.direction());
         assertEquals(brownieNotReleased(), nemo.statusBrownie());
     }
 
@@ -56,7 +56,7 @@ public class TestNemo {
         Nemo nemo = new Nemo();
         nemo.move("l");
         assertEquals( initialPosition() , nemo.position());
-        assertEquals( oneTurnLeft() , nemo.direction());
+        assertEquals( north() , nemo.direction());
         assertEquals(brownieNotReleased(), nemo.statusBrownie());
     }
 
@@ -65,7 +65,7 @@ public class TestNemo {
         Nemo nemo = new Nemo();
         nemo.move("d");
         assertEquals(oneDown(), nemo.position());
-        assertEquals(initialDirection(), nemo.direction());
+        assertEquals(east(), nemo.direction());
         assertEquals(brownieNotReleased(), nemo.statusBrownie());
     }
 
@@ -74,7 +74,7 @@ public class TestNemo {
         Nemo nemo = new Nemo();
         nemo.move("u");
         assertEquals(initialPosition(), nemo.position());
-        assertEquals(initialDirection(), nemo.direction());
+        assertEquals(east(), nemo.direction());
         assertEquals(brownieNotReleased(), nemo.statusBrownie());
     }
 
@@ -83,7 +83,7 @@ public class TestNemo {
         Nemo nemo = new Nemo();
         nemo.move("m");
         assertEquals(initialPosition(), nemo.position());
-        assertEquals(initialDirection(), nemo.direction());
+        assertEquals(east(), nemo.direction());
         assertEquals(succesfullReleaseBrownie(), nemo.statusBrownie());
     }
 
@@ -92,7 +92,7 @@ public class TestNemo {
         Nemo nemo = new Nemo();
         nemo.move("fuuu");
         assertEquals(Arrays.asList(1,0,0), nemo.position());
-        assertEquals(initialDirection(), nemo.direction());
+        assertEquals(east(), nemo.direction());
         assertEquals(brownieNotReleased(), nemo.statusBrownie());
     }
 
@@ -101,7 +101,7 @@ public class TestNemo {
         Nemo nemo = new Nemo();
         nemo.move("ff");
         assertEquals( Arrays.asList(2,0,0) , nemo.position());
-        assertEquals( initialDirection() , nemo.direction());
+        assertEquals( east() , nemo.direction());
         assertEquals(brownieNotReleased(), nemo.statusBrownie());
     }
 
@@ -110,7 +110,7 @@ public class TestNemo {
         Nemo nemo = new Nemo();
         nemo.move("rf");
         assertEquals( Arrays.asList(0,-1,0) , nemo.position());
-        assertEquals( oneTurnRight() , nemo.direction());
+        assertEquals( south() , nemo.direction());
         assertEquals(brownieNotReleased(), nemo.statusBrownie());
     }
 
@@ -119,7 +119,7 @@ public class TestNemo {
         Nemo nemo = new Nemo();
         nemo.move("dl");
         assertEquals( oneDown() , nemo.position());
-        assertEquals( oneTurnLeft() , nemo.direction());
+        assertEquals( north() , nemo.direction());
         assertEquals(brownieNotReleased(), nemo.statusBrownie());
     }
 
@@ -128,7 +128,7 @@ public class TestNemo {
         Nemo nemo = new Nemo();
         nemo.move("dm");
         assertEquals( oneDown() , nemo.position());
-        assertEquals( initialDirection() , nemo.direction());
+        assertEquals( east() , nemo.direction());
         assertEquals(succesfullReleaseBrownie(), nemo.statusBrownie());
     }
     @Test
@@ -136,7 +136,7 @@ public class TestNemo {
         Nemo nemo = new Nemo();
         nemo.move("rl");
         assertEquals( initialPosition() , nemo.position());
-        assertEquals( initialDirection() , nemo.direction());
+        assertEquals( east() , nemo.direction());
         assertEquals(brownieNotReleased(), nemo.statusBrownie());
     }
     @Test
@@ -144,7 +144,7 @@ public class TestNemo {
         Nemo nemo = new Nemo();
         nemo.move("du");
         assertEquals( initialPosition() , nemo.position());
-        assertEquals( initialDirection() , nemo.direction());
+        assertEquals( east() , nemo.direction());
         assertEquals(brownieNotReleased(), nemo.statusBrownie());
     }
     @Test
@@ -152,7 +152,7 @@ public class TestNemo {
         Nemo nemo = new Nemo();
         nemo.move("ud");
         assertEquals( oneDown() , nemo.position());
-        assertEquals( initialDirection() , nemo.direction());
+        assertEquals( east() , nemo.direction());
         assertEquals(brownieNotReleased(), nemo.statusBrownie());
     }
     @Test
@@ -182,15 +182,20 @@ public class TestNemo {
     private List<Integer> initialPosition() {
         return Arrays.asList(0,0,0);
     }
-    private Integer initialDirection() {
-        return 0;
+    private String east() {
+        return "East";
     }
-    private Integer oneTurnRight(){
-        return 270;
+    private String south(){
+        return "South";
     }
-    private Integer oneTurnLeft(){
-        return 90;
+    private String north(){
+        return "North";
     }
+
+    private String west(){
+        return "West";
+    }
+
     private List<Integer> oneDown(){
         return Arrays.asList(0,0,-1);
     }

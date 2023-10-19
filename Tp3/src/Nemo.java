@@ -2,64 +2,58 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static java.lang.Math.abs;
-
 public class Nemo {
 
     private List<Integer> position = new ArrayList<>();
     {
         position = Arrays.asList(0,0,0);
     }
-    private Integer direction = 0;
+    public String direction = "East";
     private String statusBrownie = "Brownie not released";
-
-//    public Nemo ( ) {
-//    }
+    public ArrayList<Movements> movementsDirection = new ArrayList<>();
+    {
+        movementsDirection.add(new East());
+        movementsDirection.add(new South());
+        movementsDirection.add(new West());
+        movementsDirection.add(new North());
+    }
 
     public List<Integer> position() { return position; }
     public Integer posX() { return position.get(0); }
     public Integer posY() { return position.get(1); }
     public Integer altitude() { return position.get(2); }
-    public Integer direction() { return direction; }
+    public String direction() { return direction; }
     public String statusBrownie() { return statusBrownie; }
+    public Integer actualDirection = 0;
 
-    public void move(String moves ) {
+    public Nemo move(String moves ) {
         for (String move : moves.split("")) {
             switch (move) {
                 case "d":
-                    position = Arrays.asList(posX(), posY(), altitude() - 1);
+                    position = movementsDirection.get(0).down(position);
                     break;
                 case "u":
                     if (altitude() < 0) {
-                        position = Arrays.asList(posX(), posY(), altitude() + 1);
+                        position = movementsDirection.get(actualDirection).up(position);
                     }
                     break;
                 case "l":
-                    direction = (direction + 90) % 360;
+                    direction = movementsDirection.get(actualDirection).turnLeft(direction);
+                    actualDirection = (4 + actualDirection - 1) % 4;
                     break;
                 case "r":
-                    if ((direction - 90) < 0) {
-                        direction = 270;
-                    } else {
-                        direction = direction - 90;
-                    }
+                    direction = movementsDirection.get(actualDirection).turnRight(direction);
+                    actualDirection = (actualDirection + 1) % 4;
                     break;
                 case "f":
-                    if (direction == 0) {
-                        position = Arrays.asList(posX() + 1, posY(), altitude());
-                    } else if (direction == 90) {
-                        position = Arrays.asList(posX(), posY() + 1, altitude());
-                    } else if (direction == 180) {
-                        position = Arrays.asList(posX() - 1, posY(), altitude());
-                    } else if (direction == 270) {
-                        position = Arrays.asList(posX(), posY() - 1, altitude());
-                    }
+                    position = movementsDirection.get(actualDirection).forward(direction, position);
                     break;
                 case "m":
                     statusBrownie = releaseBrownie();
                     break;
             }
         }
+        return this;
     }
     public String releaseBrownie(){
         if (altitude() >= -1) {
