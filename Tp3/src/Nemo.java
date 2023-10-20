@@ -18,6 +18,16 @@ public class Nemo {
         movementsDirection.add(new North());
     }
 
+    public ArrayList<Commands> commands = new ArrayList<>();
+    {
+        commands.add(new Down());
+        commands.add(new Up());
+        commands.add(new Left());
+        commands.add(new Right());
+        commands.add(new Forward());
+//        commands.add(new Release());
+    }
+
     public List<Integer> position() { return position; }
     public Integer posX() { return position.get(0); }
     public Integer posY() { return position.get(1); }
@@ -26,35 +36,39 @@ public class Nemo {
     public String statusBrownie() { return statusBrownie; }
     public Integer actualDirection = 0;
 
-    public Nemo move(String moves ) {
-        for (String move : moves.split("")) {
-            switch (move) {
-                case "d":
-                    position = movementsDirection.get(0).down(position);
-                    break;
-                case "u":
-                    if (altitude() < 0) {
-                        position = movementsDirection.get(actualDirection).up(position);
-                    }
-                    break;
-                case "l":
-                    direction = movementsDirection.get(actualDirection).turnLeft(direction);
-                    actualDirection = (4 + actualDirection - 1) % 4;
-                    break;
-                case "r":
-                    direction = movementsDirection.get(actualDirection).turnRight(direction);
-                    actualDirection = (actualDirection + 1) % 4;
-                    break;
-                case "f":
-                    position = movementsDirection.get(actualDirection).forward(direction, position);
-                    break;
-                case "m":
-                    statusBrownie = releaseBrownie();
-                    break;
-            }
-        }
+    public Nemo move(String moves) {
         return this;
     }
+
+//    public Nemo move(String moves ) {
+//        for (String move : moves.split("")) {
+//            switch (move) {
+//                case "d":
+//                    position = movementsDirection.get(0).down(position);
+//                    break;
+//                case "u":
+//                    if (altitude() < 0) {
+//                        position = movementsDirection.get(actualDirection).up(position);
+//                    }
+//                    break;
+//                case "l":
+//                    direction = movementsDirection.get(actualDirection).turnLeft(direction);
+//                    actualDirection = (4 + actualDirection - 1) % 4;
+//                    break;
+//                case "r":
+//                    direction = movementsDirection.get(actualDirection).turnRight(direction);
+//                    actualDirection = (actualDirection + 1) % 4;
+//                    break;
+//                case "f":
+//                    position = movementsDirection.get(actualDirection).forward(direction, position);
+//                    break;
+//                case "m":
+//                    statusBrownie = releaseBrownie();
+//                    break;
+//            }
+//        }
+//        return this;
+//    }
     public String releaseBrownie(){
         if (altitude() >= -1) {
             return "Incredible Chocolate Brownie Moment has been released unharmed";
