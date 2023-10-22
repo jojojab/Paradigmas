@@ -4,7 +4,7 @@ public class Left extends Commands {
         return command.equals("l");
     }
 
-    public void execute(Nemo nemo){
+    public void execute(Nemo nemo) {
         nemo.movementsManager.turnLeft();
     }
 }

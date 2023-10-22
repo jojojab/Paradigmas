@@ -6,13 +6,13 @@ public abstract class Movements {
 
     public abstract Integer turnLeft();
 
-    public abstract List<Integer> forward(String actualDirection, List<Integer> actualPosition);
+    public abstract List<Integer> forward(List<Integer> actualPosition);
 
-    public abstract List<Integer> down(List<Integer> actualPosition);
+    public abstract List<Integer> down(Nemo nemo);
 
-    public abstract List<Integer> up(List<Integer> actualPosition);
+    public abstract List<Integer> up(Nemo nemo);
 
-//    public abstract String releaseBrownie(String actualStatusBrownie);
+    public abstract String releaseBrownie(Nemo nemo);
 
     public abstract String direction();
 

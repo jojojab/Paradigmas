@@ -3,7 +3,7 @@ public class Down extends Commands {
         return command.equals("d");
     }
 
-    public void execute(Nemo nemo){
+    public void execute(Nemo nemo) {
         nemo.movementsManager.down();
     }
 }

@@ -3,7 +3,7 @@ public class Right extends Commands {
         return command.equals("r");
     }
 
-    public void execute(Nemo nemo){
+    public void execute(Nemo nemo) {
         nemo.movementsManager.turnRight();
     }
 }

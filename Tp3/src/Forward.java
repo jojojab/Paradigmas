@@ -3,7 +3,7 @@ public class Forward extends Commands {
         return command.equals("f");
     }
 
-    public void execute(Nemo nemo){
+    public void execute(Nemo nemo) {
         nemo.movementsManager.forward();
     }
 }

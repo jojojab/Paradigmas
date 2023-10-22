@@ -3,30 +3,32 @@ import java.util.List;
 
 public class North extends Movements {
 
-    public Integer turnRight() {;
+    public Integer turnRight() {
         return 0;
     }
 
     public Integer turnLeft() {
-        return 2;}
+        return 2;
+    }
 
-    public List<Integer> forward(String actualDirection, List<Integer> actualPosition) {
+    public List<Integer> forward(List<Integer> actualPosition) {
         return Arrays.asList(actualPosition.get(0), actualPosition.get(1) + 1, actualPosition.get(2));
     }
 
-    public List<Integer> down(List<Integer> actualPosition) {
-        return Arrays.asList(actualPosition.get(0), actualPosition.get(1), actualPosition.get(2) - 1);
+    public List<Integer> down(Nemo nemo) {
+        return nemo.depthManager.down(nemo);
     }
 
-    public List<Integer> up(List<Integer> actualPosition) {
-        return Arrays.asList(actualPosition.get(0), actualPosition.get(1), actualPosition.get(2) + 1);
+    public List<Integer> up(Nemo nemo) {
+        return nemo.depthManager.up(nemo);
     }
 
-    public String direction(){
-        return "North";}
+    public String direction() {
+        return "North";
+    }
 
-//    public String releaseBrownie(String actualStatusBrownie) {
-//        return "Brownie released";
-//    }
+    public String releaseBrownie(Nemo nemo) {
+        return nemo.depthManager.releaseBrownie(nemo);
+    }
 
 }
