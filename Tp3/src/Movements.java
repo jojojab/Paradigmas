@@ -2,9 +2,9 @@ import java.util.List;
 
 public abstract class Movements {
 
-    public abstract String turnRight(String actualDirection);
+    public abstract Integer turnRight();
 
-    public abstract String turnLeft(String actualDirection);
+    public abstract Integer turnLeft();
 
     public abstract List<Integer> forward(String actualDirection, List<Integer> actualPosition);
 
@@ -14,6 +14,7 @@ public abstract class Movements {
 
 //    public abstract String releaseBrownie(String actualStatusBrownie);
 
+    public abstract String direction();
 
 
 }

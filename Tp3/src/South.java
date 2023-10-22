@@ -1,15 +1,13 @@
 import java.util.Arrays;
 import java.util.List;
 
-public class South extends Movements{
+public class South extends Movements {
 
-    public String turnRight(String actualDirection) {
-        return "West";
-    }
+    public Integer turnRight() {
+        return 2; }
 
-    public String turnLeft(String actualDirection) {
-        return "East";
-    }
+    public Integer turnLeft() {
+        return 0; }
 
     public List<Integer> forward(String actualDirection, List<Integer> actualPosition) {
         return Arrays.asList(actualPosition.get(0), actualPosition.get(1) - 1, actualPosition.get(2));
@@ -22,6 +20,9 @@ public class South extends Movements{
     public List<Integer> up(List<Integer> actualPosition) {
         return Arrays.asList(actualPosition.get(0), actualPosition.get(1), actualPosition.get(2) + 1);
     }
+
+    public String direction(){
+        return "South"; }
 
 //    public String releaseBrownie(String actualStatusBrownie) {
 //        return "Brownie released";

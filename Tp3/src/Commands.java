@@ -1,3 +1,6 @@
 public abstract class Commands {
-    public abstract String move(String actualDirection);
+
+    public abstract boolean isCommand(String command);
+
+    public abstract void execute(Nemo nemo);
 }

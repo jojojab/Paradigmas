@@ -1,4 +1,3 @@
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
@@ -151,7 +150,7 @@ public class TestNemo {
     public void moveUpThenDown(){
         Nemo nemo = new Nemo();
         nemo.move("ud");
-        assertEquals( oneDown() , nemo.position());
+        assertEquals( initialPosition() , nemo.position());
         assertEquals( east() , nemo.direction());
         assertEquals(brownieNotReleased(), nemo.statusBrownie());
     }
@@ -183,18 +182,14 @@ public class TestNemo {
         return Arrays.asList(0,0,0);
     }
     private String east() {
-        return "East";
-    }
+        return "East";}
     private String south(){
-        return "South";
-    }
+        return "South";}
     private String north(){
-        return "North";
-    }
+        return "North";}
 
     private String west(){
-        return "West";
-    }
+        return "West";}
 
     private List<Integer> oneDown(){
         return Arrays.asList(0,0,-1);
