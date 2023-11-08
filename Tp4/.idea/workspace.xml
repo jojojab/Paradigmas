@@ -1,10 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c84483b2-c0a2-41da-a6ac-f72f6459773f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="06413b7a-6dae-43d3-b5cf-f9a57b182c9f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../Teoricas/java/Modelo Final/src/Agenda.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Teoricas/java/modelo final parking/src/AlgununSocio.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Teoricas/java/modelo final parking/src/Auto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Teoricas/java/modelo final parking/src/Cobrar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Teoricas/java/modelo final parking/src/NoSocios.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Teoricas/java/modelo final parking/src/Parking.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Teoricas/java/modelo final parking/src/ParkingTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Teoricas/java/modelo final parking/src/Socios.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Teoricas/java/modelo parcial/src/CustomerBook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Teoricas/java/modelo parcial/src/CustomerBookTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Teoricas/java/parcial corregido/src/codigorepetido/CustomerBookTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Teoricas/java/portfolio6/src/portfolio6/SummaryTreeReport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Teoricas/java/posible solucion mock parking/src/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Teoricas/java/posible solucion mock parking/src/Garage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Teoricas/java/posible solucion mock parking/src/GarageTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Teoricas/java/posible solucion mock parking/src/InvitedCar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Teoricas/java/posible solucion mock parking/src/MemberCar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Teoricas/java/posible solucion mock parking/src/ParkedCar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Teoricas/java/posible solucion mock parking/src/VisitorCar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Teoricas/java/truco/src/Carta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Teoricas/java/truco/src/Ronda.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Teoricas/java/truco/src/TrucoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tp2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FourinLine/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FourinLine/src/linea/Game.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FourinLine/src/linea/Linea.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FourinLine/src/linea/TestGame.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,36 +45,44 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
-  <component name="ProjectId" id="2XZviAAVT5h4chQFyFg2nno6hkV" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2XrZ4BKeSd2FD9HLRkaB3zOfw3o" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/lonardiestrada1/Desktop/Paradigmas/Java/Paradigmas/Tp4",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "last_opened_file_path": "C:/Users/JOJO/Udesa/Paradigmas/Paradigmas/Paradigmas/Tp4",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c84483b2-c0a2-41da-a6ac-f72f6459773f" name="Changes" comment="" />
-      <created>1698849540853</created>
+      <changelist id="06413b7a-6dae-43d3-b5cf-f9a57b182c9f" name="Changes" comment="" />
+      <created>1699388969389</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1698849540853</updated>
-      <workItem from="1698849542253" duration="88000" />
+      <updated>1699388969389</updated>
+      <workItem from="1699388970564" duration="1000" />
+      <workItem from="1699389201959" duration="68000" />
+      <workItem from="1699389296703" duration="1148000" />
     </task>
     <servers />
   </component>
