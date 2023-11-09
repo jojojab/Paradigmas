@@ -1,4 +1,6 @@
 package linea;
 
-public class GameMode {
+public abstract class GameMode {
+
+    public abstract boolean mode(Linea board, int lastMove);
 }

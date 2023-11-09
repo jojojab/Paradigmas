@@ -9,9 +9,8 @@ public class BluePlayer extends Turno {
     }
 
     public char playRedAt(int columna){
-        throw new Error(noEsTurnoErrorDescription);
+        throw new RuntimeException(noEsTurnoErrorDescription);
     }
-
     public String getTurno() {
         return "blue";
     }

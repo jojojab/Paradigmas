@@ -1,10 +1,14 @@
 package linea;
 
 import org.junit.Test;
+import org.junit.function.ThrowingRunnable;
+
+import java.lang.reflect.Executable;
 
 import static org.junit.Assert.assertEquals;
 
 import static linea.Linea.noEsTurnoErrorDescription;
+import static org.junit.Assert.assertThrows;
 
 public class GameTest {
 
@@ -28,14 +32,25 @@ public class GameTest {
     public void cannotMakeTwoConsecutivesPlays() {
         Linea game = new Linea(4, 4, 'C');
         game.playRedAt(0);
-        game.playRedAt(1);
-        assertEquals(noEsTurnoErrorDescription, game.show());
+        try{
+            game.playRedAt(1);
+        } catch (RuntimeException e){
+            assertEquals(noEsTurnoErrorDescription, e.getMessage());
+        }
+//        assertThrowsLike(() -> game.playRedAt(1), noEsTurnoErrorDescription);
     }
 
     @Test
     public void bluePlayerCanNotStart(){
         Linea game = new Linea(4, 4, 'C');
-        game.playBlueAt(0);
-        assertEquals(noEsTurnoErrorDescription, game.show());
+        try {
+            game.playBlueAt(0);
+        } catch (RuntimeException e){
+            assertEquals(noEsTurnoErrorDescription, e.getMessage());
+        }
+    }
+
+    private void assertThrowsLike(Executable excecutable, String message){
+        assertEquals(message,assertThrows(Error.class, (ThrowingRunnable) excecutable).getMessage());
     }
 }

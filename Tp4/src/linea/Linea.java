@@ -16,44 +16,31 @@ public class Linea {
     }
     public static String noEsTurnoErrorDescription = "No es turno";
 
-    public ArrayList<ArrayList> board;
+    public ArrayList<ArrayList<Character>> board;
 
     public Linea(int base, int altura, char modoJuego) {
-        board = new ArrayList<ArrayList>();
+        board = new ArrayList<ArrayList<Character>>();
         this.base = base;
         this.altura = altura;
         this.modoJuego = modoJuego;
         for (int i = 0; i < base; i++){
-            ArrayList columna = new ArrayList();
+            ArrayList<Character> columna = new ArrayList<Character>();
             board.add(columna);
         }
         this.board = board;
     }
 
-    public boolean finished() {
-        return win;
-    }
-
-    public void setTurno() {
-        this.turno = turnos.get(turno).setTurno();
-    }
-
-    public boolean turnoRed() {
-        return getTurno() == "red";
-    }
-
-    public boolean turnoBlue() {
-        return getTurno() == "blue";
-    }
 
     public void playRedAt(int columna) {
         board.get(columna).add(turnos.get(turno).playRedAt(columna));
         setTurno();
+        win = new ModeB().mode(this, columna);
     }
 
     public void playBlueAt(int columna) {
         board.get(columna).add(turnos.get(turno).playBlueAt(columna));
         setTurno();
+        win = new ModeB().mode(this, columna);
     }
 
     public String show() {
@@ -71,7 +58,23 @@ public class Linea {
         }
         return grid;
     }
-        private String getTurno() {
-            return turnos.get(turno).getTurno();
+
+    public char getFicha(int columna) {
+        return board.get(columna).get(board.get(columna).size() - 1);
+    }
+    public void setTurno() {
+        this.turno = turnos.get(turno).setTurno();
+    }
+
+    private String getTurno() {
+        return turnos.get(turno).getTurno();
+    }
+
+    public boolean finished() {
+        return win;
+    }
+
+    public int getBase() {
+        return base;
     }
 }
