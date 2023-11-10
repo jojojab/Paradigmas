@@ -1,29 +1,34 @@
 package linea;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
 
 public class Linea {
 
-    private final char modoJuego;
+    public GameMode actualGameMode;
     private int altura;
     private int base;
     public boolean win = false;
     private int turno = 0;
+
     private ArrayList<Turno> turnos = new ArrayList<Turno>();
+
     {
         turnos.add(new RedPlayer());
         turnos.add(new BluePlayer());
     }
+
     public static String noEsTurnoErrorDescription = "No es turno";
 
     public ArrayList<ArrayList<Character>> board;
 
-    public Linea(int base, int altura, char modoJuego) {
+    public Linea(int base, int altura, char gameMode) {
         board = new ArrayList<ArrayList<Character>>();
         this.base = base;
         this.altura = altura;
-        this.modoJuego = modoJuego;
-        for (int i = 0; i < base; i++){
+        this.actualGameMode = Command.commandFor(gameMode);
+        for (int i = 0; i < base; i++) {
             ArrayList<Character> columna = new ArrayList<Character>();
             board.add(columna);
         }
@@ -34,13 +39,13 @@ public class Linea {
     public void playRedAt(int columna) {
         board.get(columna).add(turnos.get(turno).playRedAt(columna));
         setTurno();
-        win = new ModeB().mode(this, columna);
+        win = actualGameMode.win(this, columna);
     }
 
     public void playBlueAt(int columna) {
         board.get(columna).add(turnos.get(turno).playBlueAt(columna));
         setTurno();
-        win = new ModeB().mode(this, columna);
+        win = actualGameMode.win(this, columna);
     }
 
     public String show() {
@@ -56,12 +61,25 @@ public class Linea {
             }
             grid += "||\n";
         }
+        grid += "|| ";
+        for (int i = 0; i < base; i++) {
+            grid += i + " ";
+        }
+        grid += "||";
         return grid;
     }
 
     public char getFicha(int columna) {
         return board.get(columna).get(board.get(columna).size() - 1);
     }
+    public char buscarCoordenada(int x, int y) {
+        if (x >= 0 && x < base && y >= 0 && y < altura) {
+            if (board.get(x).size() > y)
+                return board.get(x).get(y);
+        }
+        return ' ';
+    }
+
     public void setTurno() {
         this.turno = turnos.get(turno).setTurno();
     }
@@ -77,4 +95,18 @@ public class Linea {
     public int getBase() {
         return base;
     }
+
+    public int getAltura() {return altura;}
+
+    public GameMode modeA() {
+        return new ModeA();
+    }
+
+    public GameMode modeB() {
+        return new ModeB();
+    }
+
+//    public GameMode modeC() {
+//        return new ModeC();
+//    }
 }

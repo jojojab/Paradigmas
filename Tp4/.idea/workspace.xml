@@ -5,19 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b59458a8-7869-4df8-b8ed-ed2667f981eb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/linea/ModeA.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/linea/ModeB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/linea/ModeC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/linea/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tp3/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Tp3/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linea/BluePlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/BluePlayer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linea/BluePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/BluePlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tp4.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Tp4.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/GameMode.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/GameMode.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/linea/GameMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/GameMode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/linea/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/GameTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/linea/Linea.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/Linea.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/linea/Linea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/Linea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linea/RedPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/RedPlayer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linea/RedPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/RedPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/ModeA.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/ModeA.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/ModeA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/ModeA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/ModeB.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/ModeB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/ModeB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/ModeB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/ModeC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/ModeC.java" afterDir="false" />
     </list>
+    <list id="7bef01d2-16de-414f-99f9-42c96ff202a9" name="Changes by lonardiestrada1" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,9 +51,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/lonardiestrada1/Documents/GitHub/Paradigmas/Tp4",
     "node.js.detected.package.eslint": "true",
@@ -58,6 +68,29 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="GameTest.cannotMakeTwoConsecutivesPlays" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Tp4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="linea.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="linea" />
+      <option name="MAIN_CLASS_NAME" value="linea.GameTest" />
+      <option name="METHOD_NAME" value="cannotMakeTwoConsecutivesPlays" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.GameTest.cannotMakeTwoConsecutivesPlays" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -67,6 +100,9 @@
       <option name="presentableId" value="Default" />
       <updated>1699448768123</updated>
       <workItem from="1699448769392" duration="20000" />
+      <workItem from="1699538379529" duration="4069000" />
+      <workItem from="1699559028600" duration="2618000" />
+      <workItem from="1699618611564" duration="16023000" />
     </task>
     <servers />
   </component>
