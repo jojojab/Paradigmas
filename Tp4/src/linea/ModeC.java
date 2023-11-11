@@ -1,11 +1,8 @@
-//package linea;
-//
-//public class ModeC extends GameMode{
-//
-//    public boolean win(Linea game, int lastMove){
-//        int cuenta = 0;
-//        char color = game.getFicha(lastMove);
-//        int altura = game.board.get(lastMove).size() - 1;
-//
-//    }
-//}
+package linea;
+
+public class ModeC extends GameMode{
+
+    public boolean win(Linea game, int lastMove){
+        return checkVertical(game, lastMove) || checkHorizontal(game, lastMove) || checkDiagonal(game, lastMove);
+    }
+}

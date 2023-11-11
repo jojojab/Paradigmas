@@ -9,7 +9,7 @@ public class Linea {
     public GameMode actualGameMode;
     private int altura;
     private int base;
-    public boolean win = false;
+    private boolean win = false;
     private int turno = 0;
 
     private ArrayList<Turno> turnos = new ArrayList<Turno>();
@@ -32,7 +32,6 @@ public class Linea {
             ArrayList<Character> columna = new ArrayList<Character>();
             board.add(columna);
         }
-        this.board = board;
     }
 
 
@@ -69,22 +68,23 @@ public class Linea {
         return grid;
     }
 
+//    public char buscarCoordenada(int x, int y) {
+//        if (x >= 0 && x < base && y >= 0 && y < altura) {
+//            if (board.get(x).size() > y)
+//                return board.get(x).get(y);
+//        }
+//        return ' ';
+//    }
+
     public char getFicha(int columna) {
         return board.get(columna).get(board.get(columna).size() - 1);
-    }
-    public char buscarCoordenada(int x, int y) {
-        if (x >= 0 && x < base && y >= 0 && y < altura) {
-            if (board.get(x).size() > y)
-                return board.get(x).get(y);
-        }
-        return ' ';
     }
 
     public void setTurno() {
         this.turno = turnos.get(turno).setTurno();
     }
 
-    private String getTurno() {
+    public int getTurno() {
         return turnos.get(turno).getTurno();
     }
 
@@ -97,16 +97,4 @@ public class Linea {
     }
 
     public int getAltura() {return altura;}
-
-    public GameMode modeA() {
-        return new ModeA();
-    }
-
-    public GameMode modeB() {
-        return new ModeB();
-    }
-
-//    public GameMode modeC() {
-//        return new ModeC();
-//    }
 }
