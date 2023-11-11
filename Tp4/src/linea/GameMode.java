@@ -39,9 +39,22 @@ public abstract class GameMode {
                         }
                     }
                 });
-        return IntStream.range(0, diagonal.size())
-                .filter(i -> diagonal.get(i) == board.getFicha(lastMove))
-                .count() >= 4;
+//        return IntStream.range(0, diagonal.size())
+//                .filter(i -> diagonal.get(i) == board.getFicha(lastMove))
+//                .count() >= 4;
+        int cuenta = 0;
+        for (int i = 0; i < diagonal.size(); i++) {
+            if (diagonal.get(i) == board.getFicha(lastMove)) {
+                cuenta++;
+            }
+            else {
+                cuenta = 0;
+            }
+            if (cuenta >= 4) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean checkDiagonalLeft(Linea board, int lastMove){
@@ -58,8 +71,21 @@ public abstract class GameMode {
                         }
                     }
                 });
-        return IntStream.range(0, diagonal.size())
-                .filter(i -> diagonal.get(i) == board.getFicha(lastMove))
-                .count() >= 4;
+//        return IntStream.range(0, diagonal.size())
+//                .filter(i -> diagonal.get(i) == board.getFicha(lastMove))
+//                .count() >= 4;
+        int cuenta = 0;
+        for (int i = 0; i < diagonal.size(); i++) {
+            if (diagonal.get(i) == board.getFicha(lastMove)) {
+                cuenta++;
+            }
+            else {
+                cuenta = 0;
+            }
+            if (cuenta >= 4) {
+                return true;
+            }
+        }
+        return false;
     }
 }
