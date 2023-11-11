@@ -9,16 +9,37 @@ public abstract class GameMode {
     public abstract boolean win(Linea board, int lastMove);
 
     public boolean checkVertical(Linea board, int lastMove) {
-        return IntStream.range(0, board.board.get(lastMove).size())
-                .filter(i -> board.board.get(lastMove).get(i) == board.getFicha(lastMove))
-                .count() >= 4;
+        int cuenta = 0;
+        for (int i = 0; i < board.board.get(lastMove).size(); i++) {
+            if (board.board.get(lastMove).get(i) == board.getFicha(lastMove)) {
+                cuenta++;
+            }
+            else {
+                cuenta = 0;
+            }
+            if (cuenta >= 4) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean checkHorizontal(Linea board, int lastMove) {
-        return IntStream.range(0, board.getBase())
-                .filter(i -> board.board.get(i).size() > board.board.get(lastMove).size() - 1)
-                .filter(i -> board.board.get(i).get(board.board.get(lastMove).size() - 1) == board.getFicha(lastMove))
-                .count() >= 4;
+        int cuenta = 0;
+        for (int i = 0; i < board.getBase(); i++) {
+            if (board.board.get(i).size() > board.board.get(lastMove).size() - 1) {
+                if (board.board.get(i).get(board.board.get(lastMove).size() - 1) == board.getFicha(lastMove)) {
+                    cuenta++;
+                }
+                else {
+                    cuenta = 0;
+                }
+                if (cuenta >= 4) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public boolean checkDiagonal(Linea board, int lastMove){

@@ -6,21 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b59458a8-7869-4df8-b8ed-ed2667f981eb" name="Changes" comment="try win diagonal (AAAAA)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linea/BluePlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/BluePlayer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linea/BluePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/BluePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linea/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/Command.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/linea/GameMode.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/GameMode.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/linea/GameMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/GameMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linea/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/GameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linea/Linea.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/Linea.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linea/Linea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/Linea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linea/ModeA.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/ModeA.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linea/ModeA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/ModeA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linea/ModeC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/ModeC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linea/RedPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/RedPlayer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linea/RedPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/RedPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linea/Turno.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/Turno.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linea/Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/Turno.java" afterDir="false" />
     </list>
     <list id="7bef01d2-16de-414f-99f9-42c96ff202a9" name="Changes by lonardiestrada1" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +89,7 @@
       <workItem from="1699538379529" duration="4069000" />
       <workItem from="1699559028600" duration="2618000" />
       <workItem from="1699618611564" duration="16138000" />
-      <workItem from="1699669378118" duration="4879000" />
+      <workItem from="1699669378118" duration="6554000" />
     </task>
     <task id="LOCAL-00001" summary="try win diagonal (AAAAA)">
       <option name="closed" value="true" />
