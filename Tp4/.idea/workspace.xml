@@ -6,7 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="b59458a8-7869-4df8-b8ed-ed2667f981eb" name="Changes" comment="try win diagonal (AAAAA)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/BluePlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/BluePlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/BluePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/BluePlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/GameMode.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/GameMode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/GameMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/GameMode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/linea/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/GameTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/Linea.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/Linea.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/Linea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/Linea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/RedPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/RedPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/RedPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/RedPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/Turno.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/Turno.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/Turno.java" afterDir="false" />
     </list>
     <list id="7bef01d2-16de-414f-99f9-42c96ff202a9" name="Changes by lonardiestrada1" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,12 +34,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Pedro-Lonardi"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Pedro-Lonardi&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -68,7 +78,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.GameTest">
+  <component name="RunManager">
     <configuration name="GameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Tp4" />
       <extension name="coverage">
@@ -100,8 +110,42 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GameTest.gameThrowExceptionWhenTryingToPlayOutOfBounds" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Tp4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="linea.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="linea" />
+      <option name="MAIN_CLASS_NAME" value="linea.GameTest" />
+      <option name="METHOD_NAME" value="gameThrowExceptionWhenTryingToPlayOutOfBounds" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameTest.redPlayerCanNotPlayInFullColumn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Tp4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="linea.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="linea" />
+      <option name="MAIN_CLASS_NAME" value="linea.GameTest" />
+      <option name="METHOD_NAME" value="redPlayerCanNotPlayInFullColumn" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GameTest.gameThrowExceptionWhenTryingToPlayOutOfBounds" />
+        <item itemvalue="JUnit.GameTest.redPlayerCanNotPlayInFullColumn" />
         <item itemvalue="JUnit.GameTest" />
         <item itemvalue="JUnit.GameTest.canWinWIthFourInColumnModeC" />
       </list>

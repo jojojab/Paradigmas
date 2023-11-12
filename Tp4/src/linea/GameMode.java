@@ -60,9 +60,7 @@ public abstract class GameMode {
                         }
                     }
                 });
-//        return IntStream.range(0, diagonal.size())
-//                .filter(i -> diagonal.get(i) == board.getFicha(lastMove))
-//                .count() >= 4;
+
         int cuenta = 0;
         for (int i = 0; i < diagonal.size(); i++) {
             if (diagonal.get(i) == board.getFicha(lastMove)) {
@@ -92,9 +90,7 @@ public abstract class GameMode {
                         }
                     }
                 });
-//        return IntStream.range(0, diagonal.size())
-//                .filter(i -> diagonal.get(i) == board.getFicha(lastMove))
-//                .count() >= 4;
+
         int cuenta = 0;
         for (int i = 0; i < diagonal.size(); i++) {
             if (diagonal.get(i) == board.getFicha(lastMove)) {

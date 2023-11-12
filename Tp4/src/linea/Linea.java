@@ -1,8 +1,6 @@
 package linea;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Consumer;
 
 public class Linea {
 
@@ -11,7 +9,6 @@ public class Linea {
     private int base;
     private boolean win = false;
     private int turno = 0;
-
     private ArrayList<Turno> turnos = new ArrayList<Turno>();
 
     {
@@ -36,15 +33,17 @@ public class Linea {
 
 
     public void playRedAt(int columna) {
-        board.get(columna).add(turnos.get(turno).playRedAt(columna));
-        setTurno();
+        Character piece = turnos.get(turno).playRedAt(columna, this);
+        board.get(columna).add(piece);
         win = actualGameMode.win(this, columna);
+        setTurno();
     }
 
     public void playBlueAt(int columna) {
-        board.get(columna).add(turnos.get(turno).playBlueAt(columna));
-        setTurno();
+        Character piece = turnos.get(turno).playBlueAt(columna, this);
+        board.get(columna).add(piece);
         win = actualGameMode.win(this, columna);
+        setTurno();
     }
 
     public String show() {
