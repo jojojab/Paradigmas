@@ -5,20 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b59458a8-7869-4df8-b8ed-ed2667f981eb" name="Changes" comment="try win diagonal (AAAAA)">
+      <change afterPath="$PROJECT_DIR$/src/linea/DrawGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/linea/GameFinished.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linea/BluePlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/BluePlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/BluePlayer.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/linea/BluePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/BluePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linea/GameMode.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/GameMode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/Command.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/GameMode.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/linea/GameMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/GameMode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/linea/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/GameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linea/Linea.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/Linea.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/Linea.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/linea/Linea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/Linea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linea/RedPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/RedPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/ModeA.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/ModeB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/ModeC.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/RedPlayer.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/linea/RedPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/RedPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linea/Turno.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/Turno.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linea/Turno.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/linea/Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/linea/Turno.java" afterDir="false" />
     </list>
-    <list id="7bef01d2-16de-414f-99f9-42c96ff202a9" name="Changes by lonardiestrada1" comment="" />
+    <list id="c3d3204b-5a9c-43a6-bf4f-d184c4cbf868" name="Changes by lonardiestrada1" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +85,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.GameTest">
     <configuration name="GameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Tp4" />
       <extension name="coverage">
@@ -94,7 +101,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameTest.canWinWIthFourInColumnModeC" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameTest.drawMatch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Tp4" />
       <extension name="coverage">
         <pattern>
@@ -104,7 +111,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="linea" />
       <option name="MAIN_CLASS_NAME" value="linea.GameTest" />
-      <option name="METHOD_NAME" value="canWinWIthFourInColumnModeC" />
+      <option name="METHOD_NAME" value="drawMatch" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -142,12 +149,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GameTest.redPlayerWinsWithFourInRowModeA" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Tp4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="linea.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="linea" />
+      <option name="MAIN_CLASS_NAME" value="linea.GameTest" />
+      <option name="METHOD_NAME" value="redPlayerWinsWithFourInRowModeA" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GameTest" />
+        <item itemvalue="JUnit.GameTest.redPlayerWinsWithFourInRowModeA" />
+        <item itemvalue="JUnit.GameTest.drawMatch" />
         <item itemvalue="JUnit.GameTest.gameThrowExceptionWhenTryingToPlayOutOfBounds" />
         <item itemvalue="JUnit.GameTest.redPlayerCanNotPlayInFullColumn" />
-        <item itemvalue="JUnit.GameTest" />
-        <item itemvalue="JUnit.GameTest.canWinWIthFourInColumnModeC" />
       </list>
     </recent_temporary>
   </component>
@@ -165,6 +189,8 @@
       <workItem from="1699618611564" duration="16138000" />
       <workItem from="1699669378118" duration="6554000" />
       <workItem from="1699677237786" duration="2945000" />
+      <workItem from="1699803101727" duration="1927000" />
+      <workItem from="1699832286632" duration="8132000" />
     </task>
     <task id="LOCAL-00001" summary="try win diagonal (AAAAA)">
       <option name="closed" value="true" />

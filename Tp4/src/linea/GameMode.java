@@ -10,8 +10,8 @@ public abstract class GameMode {
 
     public boolean checkVertical(Linea board, int lastMove) {
         int cuenta = 0;
-        for (int i = 0; i < board.board.get(lastMove).size(); i++) {
-            if (board.board.get(lastMove).get(i) == board.getFicha(lastMove)) {
+        for (int i = 0; i < board.getBoard().get(lastMove).size(); i++) {
+            if (board.getBoard().get(lastMove).get(i) == board.getFicha(lastMove)) {
                 cuenta++;
             }
             else {
@@ -27,8 +27,8 @@ public abstract class GameMode {
     public boolean checkHorizontal(Linea board, int lastMove) {
         int cuenta = 0;
         for (int i = 0; i < board.getBase(); i++) {
-            if (board.board.get(i).size() > board.board.get(lastMove).size() - 1) {
-                if (board.board.get(i).get(board.board.get(lastMove).size() - 1) == board.getFicha(lastMove)) {
+            if (board.getBoard().get(i).size() > board.getBoard().get(lastMove).size() - 1) {
+                if (board.getBoard().get(i).get(board.getBoard().get(lastMove).size() - 1) == board.getFicha(lastMove)) {
                     cuenta++;
                 }
                 else {
@@ -48,12 +48,12 @@ public abstract class GameMode {
 
     public boolean checkDiagonalRight(Linea board, int lastMove){
         ArrayList<Character> diagonal = new ArrayList<>();
-        int alturaNecesaria = board.board.get(lastMove).size() - lastMove - 1;
+        int alturaNecesaria = board.getBoard().get(lastMove).size() - lastMove - 1;
         IntStream.range(0, board.getBase())
                 .forEach(i -> {
                     if (alturaNecesaria + i >= 0) {
-                        if (board.board.get(i).size() - 1 >= alturaNecesaria + i) {
-                            diagonal.add(board.board.get(i).get(alturaNecesaria + i));
+                        if (board.getBoard().get(i).size() - 1 >= alturaNecesaria + i) {
+                            diagonal.add(board.getBoard().get(i).get(alturaNecesaria + i));
                         }
                         else {
                             diagonal.add('.');
@@ -76,16 +76,15 @@ public abstract class GameMode {
         return false;
     }
 
-    public boolean checkDiagonalLeft(Linea board, int lastMove){
+    public boolean checkDiagonalLeft(Linea board, int lastMove) {
         ArrayList<Character> diagonal = new ArrayList<>();
-        int alturaNecesaria = board.board.get(lastMove).size() - lastMove - 1;
+        int alturaNecesaria = board.getBoard().get(lastMove).size() - lastMove - 1;
         IntStream.range(0, board.getBase())
                 .forEach(i -> {
                     if (alturaNecesaria + i >= 0) {
-                        if (board.board.get(board.getBase() - i - 1).size() - 1 >= alturaNecesaria + i) {
-                            diagonal.add(board.board.get(board.getBase() - i - 1).get(alturaNecesaria + i));
-                        }
-                        else {
+                        if (board.getBoard().get(board.getBase() - i - 1).size() - 1 >= alturaNecesaria + i) {
+                            diagonal.add(board.getBoard().get(board.getBase() - i - 1).get(alturaNecesaria + i));
+                        } else {
                             diagonal.add('.');
                         }
                     }
@@ -95,8 +94,7 @@ public abstract class GameMode {
         for (int i = 0; i < diagonal.size(); i++) {
             if (diagonal.get(i) == board.getFicha(lastMove)) {
                 cuenta++;
-            }
-            else {
+            } else {
                 cuenta = 0;
             }
             if (cuenta >= 4) {

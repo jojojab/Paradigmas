@@ -4,24 +4,23 @@ import static linea.Linea.noEsTurnoErrorDescription;
 
 public class BluePlayer extends Turno {
 
-    public char playBlueAt(int columna, Linea board) {
-        if (columna < 0 || columna >= board.getBase()) {
-            throw new RuntimeException("Columna fuera del tablero");
-        }
-        if (board.board.get(columna).size() == board.getAltura()) {
-            throw new RuntimeException("Columna llena");
-        }
-        return 'O';
+    public Turno playBlueAt(int columna, Linea board) {
+        board.placePiece(columna, 'O');
+        return this.fullBoard(board) ? new DrawGame() : new RedPlayer();
     }
 
-    public char playRedAt(int columna, Linea board){
+    public Turno playRedAt(int columna, Linea board){
         throw new RuntimeException(noEsTurnoErrorDescription);
     }
-    public int getTurno() {
-        return 1;
+    public String status() {
+        return "It's Blue's turn (O):";
     }
 
-    public int setTurno() {
-        return 0;
+    public String winner(){
+        return "Red (X)";
+    }
+
+    public boolean isFinished(){
+        return false;
     }
 }

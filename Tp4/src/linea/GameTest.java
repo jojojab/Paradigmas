@@ -14,10 +14,11 @@ import static linea.Linea.noEsTurnoErrorDescription;
 
 public class GameTest {
 
+
     @Test
     public void emptyBoardWhenCreated(){
         Linea game = new Linea(4, 4, 'A');
-        assertEquals(game.show(), "|| . . . . ||\n|| . . . . ||\n|| . . . . ||\n|| . . . . ||\n|| 0 1 2 3 ||");
+        assertEquals(game.show(), "|| . . . . ||\n|| . . . . ||\n|| . . . . ||\n|| . . . . ||\n|| 0 1 2 3 ||\nIt's Red's turn (X):");
         assertFalse(game.finished());
     }
 
@@ -44,7 +45,7 @@ public class GameTest {
     public void somePlays(){
         Linea game = new Linea(4, 4, 'A');
         game = playList(game, List.of(0, 0, 1, 1));
-        assertEquals(game.show(), "|| . . . . ||\n|| . . . . ||\n|| O O . . ||\n|| X X . . ||\n|| 0 1 2 3 ||");
+        assertEquals(game.show(), "|| . . . . ||\n|| . . . . ||\n|| O O . . ||\n|| X X . . ||\n|| 0 1 2 3 ||\nIt's Red's turn (X):");
         assertFalse(game.finished());
     }
 
@@ -59,7 +60,7 @@ public class GameTest {
     public void redPlayerWinsWithFourInColumnModeA(){
         Linea game = new Linea(4, 4, 'A');
         game = playList(game, List.of(0, 1, 0, 1, 0, 1, 0));
-        assertEquals(game.show(), "|| X . . . ||\n|| X O . . ||\n|| X O . . ||\n|| X O . . ||\n|| 0 1 2 3 ||");
+        assertEquals(game.show(), "|| X . . . ||\n|| X O . . ||\n|| X O . . ||\n|| X O . . ||\n|| 0 1 2 3 ||\nThe game is over, the winner is: Red (X)");
         assertTrue(game.finished());
     }
 
@@ -67,7 +68,7 @@ public class GameTest {
     public void redPlayerWinsWithFourInRowModeA(){
         Linea game = new Linea(4, 4, 'A');
         game = playList(game, List.of(0, 0, 1, 1, 2, 2, 3));
-        assertEquals(game.show(), "|| . . . . ||\n|| . . . . ||\n|| O O O . ||\n|| X X X X ||\n|| 0 1 2 3 ||");
+        assertEquals(game.show(), "|| . . . . ||\n|| . . . . ||\n|| O O O . ||\n|| X X X X ||\n|| 0 1 2 3 ||\nThe game is over, the winner is: Red (X)");
         assertTrue(game.finished());
     }
 
@@ -75,7 +76,7 @@ public class GameTest {
     public void redPlayerWinsWithFourInDiagonalModeB(){
         Linea game = new Linea(4, 4, 'B');
         game = playList(game, List.of(0, 1, 1, 2, 2, 3, 2, 3, 3, 0, 3));
-        assertEquals(game.show(), "|| . . . X ||\n|| . . X X ||\n|| O X X O ||\n|| X O O O ||\n|| 0 1 2 3 ||");
+        assertEquals(game.show(), "|| . . . X ||\n|| . . X X ||\n|| O X X O ||\n|| X O O O ||\n|| 0 1 2 3 ||\nThe game is over, the winner is: Red (X)");
         assertTrue(game.finished());
     }
 
@@ -83,7 +84,7 @@ public class GameTest {
     public void canWinWithFourInRowModeC() {
         Linea game = new Linea(4, 4, 'C');
         game = playList(game, List.of(0, 0, 1, 1, 2, 2, 3));
-        assertEquals(game.show(), "|| . . . . ||\n|| . . . . ||\n|| O O O . ||\n|| X X X X ||\n|| 0 1 2 3 ||");
+        assertEquals(game.show(), "|| . . . . ||\n|| . . . . ||\n|| O O O . ||\n|| X X X X ||\n|| 0 1 2 3 ||\nThe game is over, the winner is: Red (X)");
         assertTrue(game.finished());
     }
 
@@ -91,7 +92,7 @@ public class GameTest {
     public void canWinWIthFourInColumnModeC() {
         Linea game = new Linea(4, 4, 'C');
         game = playList(game, List.of(0, 1, 0, 1, 0, 1, 0));
-        assertEquals(game.show(), "|| X . . . ||\n|| X O . . ||\n|| X O . . ||\n|| X O . . ||\n|| 0 1 2 3 ||");
+        assertEquals(game.show(), "|| X . . . ||\n|| X O . . ||\n|| X O . . ||\n|| X O . . ||\n|| 0 1 2 3 ||\nThe game is over, the winner is: Red (X)");
         assertTrue(game.finished());
     }
 
@@ -99,7 +100,15 @@ public class GameTest {
     public void canWInWIthFourInDiagonalModeC() {
         Linea game = new Linea(4, 4, 'C');
         game = playList(game, List.of(0, 1, 1, 2, 2, 3, 2, 3, 3, 0, 3));
-        assertEquals(game.show(), "|| . . . X ||\n|| . . X X ||\n|| O X X O ||\n|| X O O O ||\n|| 0 1 2 3 ||    ");
+        assertEquals(game.show(), "|| . . . X ||\n|| . . X X ||\n|| O X X O ||\n|| X O O O ||\n|| 0 1 2 3 ||\nThe game is over, the winner is: Red (X)");
+        assertTrue(game.finished());
+    }
+
+    @Test
+    public void drawMatch(){
+        Linea game = new Linea(4, 4, 'A');
+        game = playList(game, List.of(0,0,0,0,1,2,1,1,1,2,2,2,3,3,3));
+        game.playBlueAt(3);
         assertTrue(game.finished());
     }
 
@@ -109,13 +118,13 @@ public class GameTest {
     }
 
     public Linea playList(Linea game, List<Integer> plays) {
-        plays.forEach(i -> {
-            if (game.getTurno() == 0) {
-                game.playRedAt(i);
+        for (int i = 0; i < plays.size(); i++) {
+            if (i % 2 == 0) {
+                game.playRedAt(plays.get(i));
             } else {
-                game.playBlueAt(i);
+                game.playBlueAt(plays.get(i));
             }
-        });
+        }
         return game;
     }
 
