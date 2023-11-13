@@ -75,6 +75,7 @@ public class Linea {
     public char getFicha(int columna) {
         return board.get(columna).get(board.get(columna).size() - 1);
     }
+
     public boolean finished() {
         return turnos.isFinished();
     }
@@ -82,6 +83,7 @@ public class Linea {
     public int getBase() {
         return base;
     }
+
     public int getAltura() {return altura;}
 
     public void gameHasEnded(){
@@ -89,11 +91,15 @@ public class Linea {
             this.turnos = new GameFinished(getWinner());
         }
     }
-    private String getWinner() {
+    public String getWinner() {
         return turnos.winner();
     }
 
     public ArrayList<ArrayList<Character>> getBoard() {
         return this.board;
+    }
+
+    public Turno getTurn() {
+        return this.turnos;
     }
 }

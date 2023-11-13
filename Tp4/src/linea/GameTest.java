@@ -23,14 +23,29 @@ public class GameTest {
     }
 
     @Test
+    public void canNotCreateBoardWithHeightLessThan4(){
+        assertThrowsLike(() -> new Linea(4, 3, 'B'), "The board must be at least 4x4");
+    }
+
+    @Test
+        public void canNotCreateBoardWithWidthLessThan4(){
+        assertThrowsLike(() -> new Linea(3, 4, 'C'), "The board must be at least 4x4");
+    }
+
+    @Test
     public void canNotPlaceAPieceOutsideTheBoard() {
         Linea game = new Linea(4, 4, 'A');
         assertThrowsLike(() -> game.playRedAt(4), "Columna fuera del tablero");
     }
 
     @Test
+    public void gameDoesNotStartWithAnInvalidGameMode() {
+        assertThrowsLike(() -> new Linea(7, 6, 'D'), "No value present");
+    }
+
+    @Test
     public void bluePlayerCanNotStart(){
-        Linea game = new Linea(4, 4, 'A');
+        Linea game = lineaSpec44A();
         assertThrowsLike(() -> game.playBlueAt(0), noEsTurnoErrorDescription);
     }
 
@@ -43,31 +58,27 @@ public class GameTest {
 
     @Test
     public void somePlays(){
-        Linea game = new Linea(4, 4, 'A');
-        game = playList(game, List.of(0, 0, 1, 1));
+        Linea game = playList(lineaSpec44A(), List.of(0, 0, 1, 1));
         assertEquals(game.show(), "|| . . . . ||\n|| . . . . ||\n|| O O . . ||\n|| X X . . ||\n|| 0 1 2 3 ||\nIt's Red's turn (X):");
         assertFalse(game.finished());
     }
 
     @Test
     public void canNotPlaceAPieceInAFullColumn(){
-        Linea game = new Linea(4, 4, 'A');
-        Linea board = playList(game, List.of(0, 0, 0, 0));
-        assertThrowsLike(() -> board.playRedAt(0), "Columna llena");
+        Linea game = playList(lineaSpec44A(), List.of(0, 0, 0, 0));
+        assertThrowsLike(() -> game.playRedAt(0), "Columna llena");
     }
 
     @Test
     public void redPlayerWinsWithFourInColumnModeA(){
-        Linea game = new Linea(4, 4, 'A');
-        game = playList(game, List.of(0, 1, 0, 1, 0, 1, 0));
+        Linea game = playList(lineaSpec44A(), List.of(0, 1, 0, 1, 0, 1, 0));
         assertEquals(game.show(), "|| X . . . ||\n|| X O . . ||\n|| X O . . ||\n|| X O . . ||\n|| 0 1 2 3 ||\nThe game is over, the winner is: Red (X)");
         assertTrue(game.finished());
     }
 
     @Test
     public void redPlayerWinsWithFourInRowModeA(){
-        Linea game = new Linea(4, 4, 'A');
-        game = playList(game, List.of(0, 0, 1, 1, 2, 2, 3));
+        Linea game = playList(lineaSpec44A(), List.of(0, 0, 1, 1, 2, 2, 3));
         assertEquals(game.show(), "|| . . . . ||\n|| . . . . ||\n|| O O O . ||\n|| X X X X ||\n|| 0 1 2 3 ||\nThe game is over, the winner is: Red (X)");
         assertTrue(game.finished());
     }
@@ -89,15 +100,15 @@ public class GameTest {
     }
 
     @Test
-    public void canWinWIthFourInColumnModeC() {
+    public void canWinWithFourInColumnModeC() {
         Linea game = new Linea(4, 4, 'C');
-        game = playList(game, List.of(0, 1, 0, 1, 0, 1, 0));
-        assertEquals(game.show(), "|| X . . . ||\n|| X O . . ||\n|| X O . . ||\n|| X O . . ||\n|| 0 1 2 3 ||\nThe game is over, the winner is: Red (X)");
+        game = playList(game, List.of(0, 1, 2, 1, 0, 1, 0, 1));
+        assertEquals(game.show(), "|| . O . . ||\n|| X O . . ||\n|| X O . . ||\n|| X O X . ||\n|| 0 1 2 3 ||\nThe game is over, the winner is: Blue (O)");
         assertTrue(game.finished());
     }
 
     @Test
-    public void canWInWIthFourInDiagonalModeC() {
+    public void canWinWithFourInDiagonalModeC() {
         Linea game = new Linea(4, 4, 'C');
         game = playList(game, List.of(0, 1, 1, 2, 2, 3, 2, 3, 3, 0, 3));
         assertEquals(game.show(), "|| . . . X ||\n|| . . X X ||\n|| O X X O ||\n|| X O O O ||\n|| 0 1 2 3 ||\nThe game is over, the winner is: Red (X)");
@@ -106,11 +117,43 @@ public class GameTest {
 
     @Test
     public void drawMatch(){
-        Linea game = new Linea(4, 4, 'A');
-        game = playList(game, List.of(0,0,0,0,1,2,1,1,1,2,2,2,3,3,3));
-        game.playBlueAt(3);
+        Linea game = playList(lineaSpec44A(), List.of(0,0,0,0,1,2,1,1,1,2,2,2,3,3,3,3));
         assertTrue(game.finished());
     }
+
+    @Test
+    public void tryingToPlayInADrawFinishedGame() {
+        Linea game = playList(lineaSpec44A(), List.of(0,0,0,0,1,2,1,1,1,2,2,2,3,3,3,3));
+        Linea finalGame = game;
+        assertThrowsLike(() -> finalGame.playRedAt(0), drawMatchMessage());
+    }
+
+    @Test
+    public void tryingToPlayInAWonFinishedGame() {
+        Linea game = playList(lineaSpec44A(), List.of(0, 1, 0, 1, 0, 1, 0));
+        Linea finalGame = game;
+        assertThrowsLike(() -> finalGame.playBlueAt(0), theGameIsOverMessage());
+    }
+
+    @Test
+    public void winnerIsCorrectWhenGameIsFinished() {
+        Linea game = playList(lineaSpec44A(), List.of(0, 1, 0, 1, 0, 1, 2, 1));
+        assertEquals(game.getWinner(), "Blue (O)");
+    }
+
+    private static Linea lineaSpec44A() {
+        Linea game = new Linea(4, 4, 'A');
+        return game;
+    }
+
+    private static String drawMatchMessage() {
+        return "The game is over, its a draw";
+    }
+
+    private static String theGameIsOverMessage() {
+        return "The game is over";
+    }
+
 
     private void assertThrowsLike( Executable executable, String message) {
         assertEquals( message,

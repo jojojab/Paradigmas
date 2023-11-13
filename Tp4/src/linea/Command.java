@@ -7,7 +7,7 @@ public class Command {
     static public GameMode commandFor(char command ) {
         return List.of( new Command( 'A', new ModeA()),
                         new Command( 'B', new ModeB()),
-                        new Command( 'C', new ModeC() )
+                        new Command( 'C', new ModeC())
                 ).stream()
                 .filter( each -> each.applies( command ) )
                 .findAny()
